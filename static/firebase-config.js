@@ -1,4 +1,3 @@
-%%writefile static/firebase-config.js
 const firebaseConfig = {
   apiKey: "AIzaSyB-aEURyLN_mc42Vqpa1l3MnU7ROVpR3k4",
   authDomain: "truesight-e7b2d.firebaseapp.com",

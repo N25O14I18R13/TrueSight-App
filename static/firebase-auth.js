@@ -1,4 +1,3 @@
-%%writefile static/firebase-auth.js
 document.addEventListener('DOMContentLoaded', () => {
 
     const authModal = document.getElementById('auth-modal');

@@ -1,4 +1,3 @@
-%%writefile static/script.js
 document.addEventListener('DOMContentLoaded', () => {
     const videoInput = document.getElementById('video-input');
     const uploadLabel = document.getElementById('upload-label');

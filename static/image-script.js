@@ -1,4 +1,3 @@
-%%writefile static/image-script.js
 document.addEventListener('DOMContentLoaded', () => {
 
     const imageInput = document.getElementById('image-input');
