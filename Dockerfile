@@ -4,6 +4,10 @@ RUN apt-get update && apt-get install -y libgl1 libglib2.0-0
 
 WORKDIR /app
 
+RUN pip uninstall -y opencv-python opencv-python-headless
+
+RUN pip install opencv-python-headless
+
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
