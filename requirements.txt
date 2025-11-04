@@ -1,6 +1,5 @@
 flask
 pyngrok
-opencv-python
 Pillow
 tensorflow
 mtcnn
