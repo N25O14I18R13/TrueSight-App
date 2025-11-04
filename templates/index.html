@@ -1,0 +1,113 @@
+%%writefile templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueSight - DeepFake Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+    <script src="{{ url_for('static', filename='firebase-config.js') }}"></script>
+    <script src="{{ url_for('static', filename='firebase-auth.js') }}" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-brand">
+            <a href="/">TrueSight</a>
+        </div>
+        <nav class="navbar-nav">
+
+            <a href="#about-section">About</a>
+            <a href="#contact-section">Contact</a>
+            <a href="/detect">Detect Video</a>
+
+            <a href="/detect-image">Image Detect</a>
+
+            <div id="auth-container" class="auth-buttons-container">
+                <a href="#" id="auth-signin-btn" class="auth-button">Sign In</a>
+                <a href="#" id="auth-signup-btn" class="auth-button-primary">Sign Up</a>
+                <a href="#" id="auth-logout-btn" class="auth-button hidden">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container hero-section">
+        <h1>TrueSight - Autenticity Analysis Software</h1>
+        <p>Protect yourself from digital deception with our state-of-the-art deepfake detection technology. Upload your media and get instant analysis powered by advanced AI.</p>
+        <a href="/detect" class="btn btn-primary">START DETECTION</a>
+    </main>
+
+    <section class="features-section">
+        <h2>KEY FEATURES</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>HIGH ACCURACY</h3>
+                <p>Our advanced AI model achieves industry-leading accuracy in detecting manipulated videos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>REAL-TIME ANALYSIS</h3>
+                <p>Get instant results with our efficient processing system and detailed confidence scores.</p>
+            </div>
+            <div class="feature-card">
+                <h3>USER-FRIENDLY</h3>
+                <p>Simple upload process and clear visualization of results make detection accessible to everyone.</p>
+            </div>
+        </div>
+    </section>
+    <section id="deepfake-info-section" class="info-section">
+        <div class="info-content">
+            <h2>What is a Deepfake?</h2>
+            <p>A "deepfake" is a term for synthetic media created using artificial intelligence (AI). By combining and superimposing existing images and videos onto source images or videos (using a technique known as a generative adversarial network, or GAN), AI can create realistic-looking fake media that is often indistinguishable from the real thing.</p>
+            <p>While this technology can be used for harmless fun, it is increasingly used for malicious purposes, such as creating fake news, spreading disinformation, committing fraud, or creating non-consensual explicit imagery. TrueSight is built to help you identify and combat this threat.</p>
+        </div>
+    </section>
+    <section id="about-section" class="info-section-dark">
+        <div class="info-content">
+            <h2>About Us</h2>
+            <p>We are a team of researchers and engineers passionate about building a more secure and truthful digital world. We believe that as AI technology becomes more powerful, it's essential to develop equally powerful tools to ensure its ethical use. TrueSight is our flagship product, designed to empower individuals, journalists, and organizations to verify the authenticity of digital media.</p>
+            <p>Our mission is to provide an accessible, reliable, and highly accurate platform for deepfake detection, helping to restore trust in digital communication.</p>
+        </div>
+    </section>
+
+    <footer id="contact-section" class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>We are dedicated to detecting and preventing deepfake media using advanced AI technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: TrueSightquery@gmail.com</p>
+                    <p>Phone: 9449931713</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="auth-modal hidden">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close">&times;</span>
+            <h2 id="modal-title">Sign In</h2>
+            <div id="modal-error" class="modal-error hidden"></div>
+            <input type="email" id="modal-email" placeholder="Email" class="modal-input">
+            <input type="password" id="modal-password" placeholder="Password" class="modal-input">
+            <button id="modal-submit-btn" class="btn btn-primary">Sign In</button>
+            <p class="modal-toggle">
+                <span id="modal-toggle-text">Don't have an account?</span>
+                <a href="#" id="modal-toggle-link">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

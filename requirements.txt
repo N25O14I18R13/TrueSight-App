@@ -1,0 +1,12 @@
+flask
+pyngrok
+opencv-python
+Pillow
+tensorflow
+mtcnn
+pandas
+matplotlib
+firebase-admin
+transformers
+torch
+gunicorn
