@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const uploadLabel = document.getElementById('upload-label');
     const fileNameDisplay = document.getElementById('file-name-display');
     const analyzeBtn = document.getElementById('analyze-btn');
-
+    
     const uploadBox = document.getElementById('upload-box');
     const loadingBox = document.getElementById('loading-box');
     const loadingFileName = document.getElementById('loading-file-name');
     const resultsBox = document.getElementById('results-box');
 
     let selectedFile = null;
+
     videoInput.addEventListener('change', (e) => {
         if (e.target.files && e.target.files.length > 0) {
             selectedFile = e.target.files[0];
@@ -17,14 +18,27 @@ document.addEventListener('DOMContentLoaded', () => {
             analyzeBtn.disabled = false;
         }
     });
+
     analyzeBtn.addEventListener('click', () => {
+
+        if (!window.TrueSightApp || !window.TrueSightApp.isUserLoggedIn) {
+            if (window.TrueSightApp && window.TrueSightApp.openModal) {
+                window.TrueSightApp.openModal(false);
+            } else {
+                alert('Please sign in to analyze videos.');
+            }
+            return;
+        }
+
         if (!selectedFile) {
             alert('Please select a video file first.');
             return;
         }
+
         uploadBox.classList.add('hidden');
         loadingFileName.textContent = selectedFile.name;
         loadingBox.classList.remove('hidden');
+
         const formData = new FormData();
         formData.append('video', selectedFile);
 
@@ -57,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultText = document.getElementById('result-text');
         resultText.textContent = data.prediction;
         document.getElementById('result-confidence').textContent = `Confidence: ${data.confidence}%`;
-
+        
         if (data.prediction.toUpperCase() === 'FAKE') {
-            resultText.style.color = '#ef4444'; 
+            resultText.style.color = '#ef4444';
         } else {
-            resultText.style.color = 'var(--accent)'; 
+            resultText.style.color = 'var(--accent)';
         }
 
         const pie = document.querySelector('.pie');

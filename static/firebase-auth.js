@@ -1,3 +1,8 @@
+window.TrueSightApp = {
+    isUserLoggedIn: false,
+    openModal: () => { console.error('Modal not initialized'); }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const authModal = document.getElementById('auth-modal');
@@ -28,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         authModal.classList.remove('hidden');
     }
 
+    window.TrueSightApp.openModal = openModal;
+
     function closeModal() {
         authModal.classList.add('hidden');
         modalEmail.value = '';
@@ -53,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         openModal(!isSigningUp);
     });
-
+    
     function showModalError(message) {
         modalError.textContent = message;
         modalError.classList.remove('hidden');
@@ -63,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const email = modalEmail.value;
         const password = modalPassword.value;
-
+        
         if (!email || !password) {
             showModalError('Please enter both email and password.');
             return;
@@ -91,13 +98,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         }
     });
+
     logoutBtn.addEventListener('click', (e) => {
         e.preventDefault();
         auth.signOut()
             .then(() => console.log('User signed out.'))
             .catch((error) => console.error('Sign out error:', error));
     });
+
     auth.onAuthStateChanged((user) => {
+        
+        window.TrueSightApp.isUserLoggedIn = !!user;
+
         if (user) {
             signInBtn.classList.add('hidden');
             signUpBtn.classList.add('hidden');
