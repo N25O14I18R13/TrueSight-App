@@ -15,4 +15,4 @@ COPY . .
 
 ENV PORT 7860
 
-CMD ["gunicorn", "--workers", "1", "--timeout", "120", "--bind", "0.0.0.0:7860", "app:app"]
+CMD ["gunicorn", "--workers", "1", "--timeout", "300", "--bind", "0.0.0.0:7860", "app:app"]
