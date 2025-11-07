@@ -208,7 +208,7 @@ def analyze_video_api():
         frame_paths = []
         for i, frame_data in enumerate(display_frames[:8]):
             img_data = np.clip((frame_data + 1) / 2 * 255, 0, 255).astype(np.uint8)
-            img_data_bgr = cv2.cvtColor(img_data, cv2.COLOR_RGB_BGR)
+            img_data_bgr = cv2.cvtColor(img_data, cv2.COLOR_RGB2BGR)
             frame_filename = f"frame_{i}.jpg"; save_path = os.path.join('static', 'frames', frame_filename)
             cv2.imwrite(save_path, img_data_bgr); frame_paths.append(f"/static/frames/{frame_filename}")
             
