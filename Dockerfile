@@ -6,5 +6,6 @@ RUN pip install opencv-python-headless
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+RUN mkdir -p static/frames
 ENV PORT 7860
 CMD ["gunicorn", "--workers", "1", "--timeout", "300", "--bind", "0.0.0.0:7860", "app:app"]
