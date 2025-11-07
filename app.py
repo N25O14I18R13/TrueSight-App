@@ -251,7 +251,7 @@ def analyze_image_api():
         shutil.copy(image_path, preview_save_path)
         
         response_data = {
-            "prediction": prediction_label.toUpperCase(),
+            "prediction": prediction_label.upper(),
             "confidence": confidence_score,
             "image_url": f"/static/frames/{preview_filename}"
         }
