@@ -179,7 +179,6 @@ def detect_image_page():
 
 @app.route('/api/analyze-video', methods=['POST'])
 def analyze_video_api():
-    # --- THIS IS THE CORRECTED LINE ---
     local_video_model = get_video_model() 
     if local_video_model is None:
         return jsonify({"error": "Video model is not loaded."}), 500
@@ -242,7 +241,8 @@ def analyze_image_api():
     
     try:
         prediction_label, confidence = run_image_detection_vit(image_path)
-        end_process_time = time.max()
+        # --- THIS IS THE TYPO FIX ---
+        end_process_time = time.time()
 
         confidence_score = f"{confidence*100:.2f}"
         
