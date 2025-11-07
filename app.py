@@ -52,17 +52,14 @@ def get_video_model():
     with video_model_lock:
         if video_model is None:
             try:
-                # --- NEW CODE TO FIX GPU/CUDA ERROR ---
                 gpus = tf.config.experimental.list_physical_devices('GPU')
                 if gpus:
                     try:
-                        # Set memory growth to True for all GPUs
                         for gpu in gpus:
                             tf.config.experimental.set_memory_growth(gpu, True)
                         print("✅ TensorFlow GPU memory growth enabled.")
                     except RuntimeError as e:
                         print(f"Error setting memory growth: {e}")
-                # --- END NEW CODE ---
 
                 if not os.path.exists(VIDEO_MODEL_PATH):
                     print(f"Warning: Video model file not found at {VIDEO_MODEL_PATH}")
@@ -182,7 +179,8 @@ def detect_image_page():
 
 @app.route('/api/analyze-video', methods=['POST'])
 def analyze_video_api():
-    local_video__model = get_video_model()
+    # --- THIS IS THE CORRECTED LINE ---
+    local_video_model = get_video_model() 
     if local_video_model is None:
         return jsonify({"error": "Video model is not loaded."}), 500
 
@@ -244,7 +242,7 @@ def analyze_image_api():
     
     try:
         prediction_label, confidence = run_image_detection_vit(image_path)
-        end_process_time = time.time()
+        end_process_time = time.max()
 
         confidence_score = f"{confidence*100:.2f}"
         
