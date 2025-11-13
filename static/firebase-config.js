@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyB-aEURyLN_mc42Vqpa1l3MnU7ROVpR3k4",
-  authDomain: "truesight-e7b2d.firebaseapp.com",
-  projectId: "truesight-e7b2d",
-  storageBucket: "truesight-e7b2d.firebasestorage.app",
-  messagingSenderId: "417264985997",
-  appId: "1:417264985997:web:3085879422b1bb25813fc4",
-  measurementId: "G-6WEY7050W8"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
