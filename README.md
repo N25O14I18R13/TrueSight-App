@@ -4,12 +4,6 @@ TrueSight is a full-stack web application designed to detect AI-generated deepfa
 
 This project was built as a final-year Computer Science project.
 
-### 🔗 Live Demo
-
-You can try the live application here:
-**[huggingface.co/spaces/ShadowArtisan/TrueSight](https://huggingface.co/spaces/ShadowArtisan/TrueSight)**
-
----
 
 ### ✨ Features
 
@@ -21,43 +15,17 @@ You can try the live application here:
 * **Real-Time Results:** Get instant classification ("REAL" or "FAKE") with a confidence score and a visual breakdown of analyzed frames.
 * **Containerized Deployment:** The entire application is containerized using **Docker** for easy and reliable deployment on platforms like Hugging Face Spaces.
 
----
-
-### 📷 Screenshots
-
-*(Optional: You can add your screenshots here. Just drag and drop them onto the GitHub README editor.)*
-
-| Home Page | Video Detection | Image Results |
-| :---: | :---: | :---: |
-| 
-
-[Image of Homepage]
- |  | 
-
-[Image of Image Results]
- |
-
----
 
 ### 💻 Technology Stack
 
 * **Backend:** Python, Flask, Gunicorn
 * **Frontend:** HTML, CSS, JavaScript
 * **AI / Machine Learning:**
-    * [cite_start]TensorFlow / Keras (for Xception+LSTM) [cite: 52]
-    * [cite_start]PyTorch / Transformers (for ViT) [cite: 52]
-    * [cite_start]MTCNN (for face detection) [cite: 52]
+    * TensorFlow / Keras (for Xception+LSTM) 
+    * PyTorch / Transformers (for ViT)
+    * MTCNN (for face detection)
     * OpenCV (for video processing)
 * **Authentication:** Firebase
-* [cite_start]**Deployment:** Docker [cite: 1]
+* **Deployment:** Docker
 
 ---
-
-### 🚀 How to Run Locally
-
-To run this project on your local machine, follow these steps:
-
-**1. Clone the Repository:**
-```bash
-git clone [https://github.com/N25O14I18R13/TrueSight-App.git](https://github.com/N25O14I18R13/TrueSight-App.git)
-cd TrueSight-App
